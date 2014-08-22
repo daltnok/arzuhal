@@ -1,0 +1,23 @@
+<h1>Users</h1>
+
+<table>
+  <tr>
+    <th>isim</th>
+    <th>Soyisim</th>
+    <th>email</th>
+    <th>Biyografi</th>
+  </tr>
+
+  <% @users.each do |user| %>
+      <tr>
+        <td><%= user.isim %></td>
+        <td><%= user.soyisim %></td>
+        <td><%= user.email %></td>
+        <td><%= user.biyografi %></td>
+        <td><%= link_to 'Show', user_path(user) %></td>
+        <td><%= link_to 'Edit', edit_user_path(user) %></td>
+      </tr>
+
+
+  <% end %>
+</table>

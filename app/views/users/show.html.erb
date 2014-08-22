@@ -1,0 +1,40 @@
+<p>
+  <strong>isim:</strong>
+  <%= @user.isim %>
+</p>
+<strong>soyisim:</strong>
+<%= @user.soyisim %>
+</p>
+<strong>email:</strong>
+<%= @user.email %>
+</p>
+<strong>biyografi:</strong>
+<%= @user.biyografi %>
+</p>
+<%= form_for([@user,@user.tweets.build])  do |f| %>
+
+
+    <p>
+      <%= f.label :tweet %><br>
+      <%= f.text_area :tweet %>
+    </p>
+    <p>
+      <%= f.submit %>
+    </p>
+    <table>
+      <tr>
+        <th>Title</th>
+        <th>Text</th>
+      </tr>
+
+      <% @tweets.each do |tweet| %>
+          <tr>
+            <td><%= tweet.created_at %></td>
+            <td><%= tweet.tweet %></td>
+
+          </tr>
+      <% end %>
+    </table>
+    <%= link_to 'Back', users_path %>
+<% end %>
+
